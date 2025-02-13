@@ -29,3 +29,5 @@ set_property(TARGET node_str_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
 add_library(ktnodert_static STATIC $<TARGET_OBJECTS:node_str_obj>)
 add_library(ktnodert_shared SHARED $<TARGET_OBJECTS:node_str_obj>)
 target_link_options(ktnodert_shared PUBLIC ${COMPILER_OPTION})
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/include/NodeString.h DESTINATION ${CMAKE_BINARY_DIR})
