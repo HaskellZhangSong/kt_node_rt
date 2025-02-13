@@ -11,7 +11,7 @@ fi
 echo building for ${ENABLE}
 
 set -e
-pushd .
+pushd . > /dev/null
 PROJECT_DIR=$(cd $(dirname "${BASH_SOURCE[0]})" > /dev/null 2>&1 && pwd -P))
 echo $PROJECT_DIR
 echo "cmake ${ENABLE}=ON -S . -B build"
@@ -19,4 +19,4 @@ cmake -D${ENABLE}=ON -S . -B build
 cd build
 make
 
-popd
+popd > /dev/null
