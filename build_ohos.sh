@@ -2,7 +2,7 @@
 set -e
 pushd . > /dev/null
 
-ohos_sdk_native_dir=/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/native/
+ohos_sdk_native_dir=${OHOS_SDK_HOME}/default/openharmony/native/
 build_path=build_ohos
 $ohos_sdk_native_dir/build-tools/cmake/bin/cmake \
     -DCMAKE_BUILD_TYPE=Debug \
