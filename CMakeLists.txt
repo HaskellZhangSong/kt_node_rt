@@ -16,7 +16,7 @@ endif()
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_library(node_str_obj OBJECT src/NodeString.cpp)
+add_library(node_str_obj OBJECT src/NodeString.cpp src/RuntimeBoxing.cpp src/TaiheString.cpp)
 
 if(DEFINED ENABLE_LINUX OR DEFINED ENABLE_MACOS)
     set(INCLUDE_DIRS ${NODE_HOME}/include )
@@ -39,3 +39,4 @@ if(DEFINED ENABLE_LINUX OR DEFINED ENABLE_MACOS)
 endif()
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/include/NodeString.h DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/include/TaiheString.h DESTINATION ${CMAKE_BINARY_DIR})
