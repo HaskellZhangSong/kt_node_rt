@@ -67,9 +67,11 @@ OBJ_GETTER(CreateStringFromTHString, ::taihe::core::string_view thstring) {
 
 ::taihe::core::string CreateTHStringFromString(KConstRef kref) {
     if (kref == nullptr) return nullptr;
-      std::string utf8 = to_string(kref->array());
+    std::string utf8 = to_string(kref->array());
     TString tstr;
-    ::memcpy(tstr_initialize(&tstr, utf8.size() + 1), utf8.c_str(), utf8.size());
+    char* buffer = tstr_initialize(&tstr, utf8.size() + 1);
+    ::memcpy(buffer, utf8.c_str(), utf8.size());
+    buffer[utf8.size()] = '\0';
     tstr.length = utf8.size();
     return ::taihe::core::string(tstr);
 }
