@@ -24,48 +24,34 @@ typedef void*              KNativePtr;
 struct KType;
 typedef struct KType KType;
 
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Byte;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Short;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Int;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Long;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Float;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Double;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Char;
-typedef struct {
-KNativePtr pinned;
-} Kref_kotlin_Boolean;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_Unit;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_UByte;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_UShort;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_UInt;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_ULong;
-typedef struct {
-    KNativePtr pinned;
-} Kref_kotlin_Any;
+
+typedef void* Kref_kotlin_Byte;
+
+typedef void* Kref_kotlin_Short;
+
+typedef void* Kref_kotlin_Int;
+
+typedef void* Kref_kotlin_Long;
+
+typedef void* Kref_kotlin_Float;
+
+typedef void* Kref_kotlin_Double;
+
+typedef void* Kref_kotlin_Char;
+
+typedef void* Kref_kotlin_Boolean;
+
+typedef void* Kref_kotlin_Unit;
+
+typedef void* Kref_kotlin_UByte;
+
+typedef void* Kref_kotlin_UShort;
+
+typedef void* Kref_kotlin_UInt;
+
+typedef void* Kref_kotlin_ULong;
+
+typedef void* Kref_kotlin_Any;
 
 typedef struct {
   /* Service functions. */
@@ -201,29 +187,29 @@ static Kref_kotlin_Byte createNullableByteImpl(KByte value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxByte(value,  result_holder.slot());
-  return Kref_kotlin_Byte { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KByte Kotlin_unboxByte(KObjHeader*);
 static KByte getNonNullValueOfByteImpl(Kref_kotlin_Byte value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxByte(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxByte(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxShort(KShort value, KObjHeader**);
 static Kref_kotlin_Short createNullableShortImpl(KShort value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
-  KObjHeader* result = Kotlin_boxShort(value,  result_holder.slot());
-  return Kref_kotlin_Short { .pinned = CreateStablePointer(result) };
+  KObjHeader* result = Kotlin_boxShort(value, result_holder.slot());
+  return CreateStablePointer(result);
 }
 extern "C" KShort Kotlin_unboxShort(KObjHeader*);
 static KShort getNonNullValueOfShortImpl(Kref_kotlin_Short value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxShort(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxShort(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxInt(KInt value, KObjHeader**);
 static Kref_kotlin_Int createNullableIntImpl(KInt value) {
@@ -231,14 +217,14 @@ static Kref_kotlin_Int createNullableIntImpl(KInt value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxInt(value,  result_holder.slot());
-  return Kref_kotlin_Int { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KInt Kotlin_unboxInt(KObjHeader*);
 static KInt getNonNullValueOfIntImpl(Kref_kotlin_Int value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxInt(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxInt(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxLong(KLong value, KObjHeader**);
 static Kref_kotlin_Long createNullableLongImpl(KLong value) {
@@ -246,14 +232,14 @@ static Kref_kotlin_Long createNullableLongImpl(KLong value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxLong(value,  result_holder.slot());
-  return Kref_kotlin_Long { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KLong Kotlin_unboxLong(KObjHeader*);
 static KLong getNonNullValueOfLongImpl(Kref_kotlin_Long value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxLong(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxLong(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxFloat(KFloat value, KObjHeader**);
 static Kref_kotlin_Float createNullableFloatImpl(KFloat value) {
@@ -261,14 +247,14 @@ static Kref_kotlin_Float createNullableFloatImpl(KFloat value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxFloat(value,  result_holder.slot());
-  return Kref_kotlin_Float { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KFloat Kotlin_unboxFloat(KObjHeader*);
 static KFloat getNonNullValueOfFloatImpl(Kref_kotlin_Float value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxFloat(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxFloat(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxDouble(KDouble value, KObjHeader**);
 static Kref_kotlin_Double createNullableDoubleImpl(KDouble value) {
@@ -276,14 +262,14 @@ static Kref_kotlin_Double createNullableDoubleImpl(KDouble value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxDouble(value,  result_holder.slot());
-  return Kref_kotlin_Double { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KDouble Kotlin_unboxDouble(KObjHeader*);
 static KDouble getNonNullValueOfDoubleImpl(Kref_kotlin_Double value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxDouble(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxDouble(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxChar(KChar value, KObjHeader**);
 static Kref_kotlin_Char createNullableCharImpl(KChar value) {
@@ -291,14 +277,14 @@ static Kref_kotlin_Char createNullableCharImpl(KChar value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxChar(value,  result_holder.slot());
-  return Kref_kotlin_Char { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KChar Kotlin_unboxChar(KObjHeader*);
 static KChar getNonNullValueOfCharImpl(Kref_kotlin_Char value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxChar(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxChar(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxBoolean(KBoolean value, KObjHeader**);
 static Kref_kotlin_Boolean createNullableBooleanImpl(KBoolean value) {
@@ -306,14 +292,14 @@ static Kref_kotlin_Boolean createNullableBooleanImpl(KBoolean value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxBoolean(value,  result_holder.slot());
-  return Kref_kotlin_Boolean { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KBoolean Kotlin_unboxBoolean(KObjHeader*);
 static KBoolean getNonNullValueOfBooleanImpl(Kref_kotlin_Boolean value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxBoolean(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxBoolean(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxUnit( KObjHeader**);
 static Kref_kotlin_Unit createNullableUnitImpl() {
@@ -321,7 +307,7 @@ static Kref_kotlin_Unit createNullableUnitImpl() {
   ScopedRunnableState stateGuard;
  KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxUnit( result_holder.slot());
-  return Kref_kotlin_Unit { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KObjHeader* Kotlin_boxUByte(KUByte value, KObjHeader**);
 static Kref_kotlin_UByte createNullableUByteImpl(KUByte value) {
@@ -329,14 +315,14 @@ static Kref_kotlin_UByte createNullableUByteImpl(KUByte value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxUByte(value,  result_holder.slot());
-  return Kref_kotlin_UByte { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KUByte Kotlin_unboxUByte(KObjHeader*);
 static KUByte getNonNullValueOfUByteImpl(Kref_kotlin_UByte value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxUByte(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxUByte(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxUShort(KUShort value, KObjHeader**);
 static Kref_kotlin_UShort createNullableUShortImpl(KUShort value) {
@@ -344,14 +330,14 @@ static Kref_kotlin_UShort createNullableUShortImpl(KUShort value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxUShort(value,  result_holder.slot());
-  return Kref_kotlin_UShort { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KUShort Kotlin_unboxUShort(KObjHeader*);
 static KUShort getNonNullValueOfUShortImpl(Kref_kotlin_UShort value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxUShort(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxUShort(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxUInt(KUInt value, KObjHeader**);
 static Kref_kotlin_UInt createNullableUIntImpl(KUInt value) {
@@ -359,29 +345,29 @@ static Kref_kotlin_UInt createNullableUIntImpl(KUInt value) {
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
   KObjHeader* result = Kotlin_boxUInt(value,  result_holder.slot());
-  return Kref_kotlin_UInt { .pinned = CreateStablePointer(result) };
+  return CreateStablePointer(result);
 }
 extern "C" KUInt Kotlin_unboxUInt(KObjHeader*);
 static KUInt getNonNullValueOfUIntImpl(Kref_kotlin_UInt value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxUInt(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxUInt(DerefStablePointer(value, value_holder.slot()));
 }
 extern "C" KObjHeader* Kotlin_boxULong(KULong value, KObjHeader**);
 static Kref_kotlin_ULong createNullableULongImpl(KULong value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder result_holder;
-  KObjHeader* result = Kotlin_boxULong(value,  result_holder.slot());
-  return Kref_kotlin_ULong { .pinned = CreateStablePointer(result) };
+  KObjHeader* result = Kotlin_boxULong(value, result_holder.slot());
+  return CreateStablePointer(result);
 }
 extern "C" KULong Kotlin_unboxULong(KObjHeader*);
 static KULong getNonNullValueOfULongImpl(Kref_kotlin_ULong value) {
   Kotlin_initRuntimeIfNeeded();
   ScopedRunnableState stateGuard;
   KObjHolder value_holder;
-  return Kotlin_unboxULong(DerefStablePointer(value.pinned, value_holder.slot()));
+  return Kotlin_unboxULong(DerefStablePointer(value, value_holder.slot()));
 }
 
 static RuntimeBoxingExportedSymbols __konan_symbols = {
