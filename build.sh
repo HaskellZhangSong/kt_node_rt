@@ -22,7 +22,7 @@ make
 
 cd ${PROJECT_DIR}
 
-ohos_sdk_native_dir=${OHOS_SDK_HOME}/default/openharmony/native/
+ohos_sdk_native_dir=${OHOS_SDK_HOME}/sdk/default/openharmony/native/
 build_path=build/aarch64-linux-ohos
 $ohos_sdk_native_dir/build-tools/cmake/bin/cmake \
     -DCMAKE_BUILD_TYPE=Debug \

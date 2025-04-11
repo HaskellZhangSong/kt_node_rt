@@ -21,7 +21,7 @@ add_library(node_str_obj OBJECT src/NodeString.cpp)
 if(DEFINED ENABLE_LINUX OR DEFINED ENABLE_MACOS)
     set(INCLUDE_DIRS ${NODE_HOME}/include )
 elseif(DEFINED ENABLE_OHOS)
-    set(INCLUDE_DIRS ${OHOS_HOME}/default/openharmony/native/sysroot/usr/include)
+    set(INCLUDE_DIRS ${OHOS_HOME}/sdk/default/openharmony/native/sysroot/usr/include)
 endif()
 
 list(APPEND INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
